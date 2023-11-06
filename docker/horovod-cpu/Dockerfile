@@ -1,7 +1,8 @@
 FROM ubuntu:20.04
 
 #docker build -t hvd-cpu -f docker/horovod-cpu/Dockerfile .
-#docker run -it -d --network=host -v/home/feichao.ma/proj/study:/workspace hvd-cpu bash
+#docker run -it -d --network=host --privileged -v/home/feichao.ma/proj/study:/workspace hvd-cpu bash
+#HOROVOD_WITH_PYTORCH=1 HOROVOD_WITH_TENSORFLOW=1 pip install -v -e .
 
 # TensorFlow version is tightly coupled to CUDA and cuDNN so it should be selected carefully
 ARG TENSORFLOW_VERSION=2.9.2

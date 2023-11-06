@@ -33,6 +33,8 @@ def main():
 
     (mnist_images, mnist_labels), _ = \
         tf.keras.datasets.mnist.load_data(path='mnist-%d.npz' % hvd.rank())
+    print("data path:" + ('mnist-%d.npz' % hvd.rank()))
+    print("data shape:", mnist_images.shape, mnist_labels.shape)
 
     dataset = tf.data.Dataset.from_tensor_slices(
         (tf.cast(mnist_images[..., tf.newaxis] / 255.0, tf.float32),
